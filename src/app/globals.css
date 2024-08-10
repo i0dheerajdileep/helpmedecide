@@ -31,3 +31,31 @@ body {
     text-wrap: balance;
   }
 }
+
+
+@keyframes slide-in {
+  from {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+}
+
+.animate-cat {
+  @apply absolute transition-transform duration-1000 ease-in-out;
+  animation: slide-in 1s ease-in-out forwards, slide-out 1s ease-in-out 1s forwards;
+}
