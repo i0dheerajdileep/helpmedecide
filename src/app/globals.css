@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap');
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -18,12 +20,19 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: "Caveat", cursive;
+  background: rgb(var(--background-start-rgb)); /* Set the base color */
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  z-index: -1; /* Ensure the background image is behind the content */
 }
 
 @layer utilities {
@@ -31,7 +40,6 @@ body {
     text-wrap: balance;
   }
 }
-
 
 @keyframes slide-in {
   from {
@@ -46,16 +54,16 @@ body {
 
 @keyframes slide-out {
   from {
-    transform: translate(0, 0);
+    transform: translate(0, 100px);
     opacity: 1;
   }
   to {
-    transform: translate(0, 0);
+    transform: translate(0, 100px);
     opacity: 0;
   }
 }
 
 .animate-cat {
   @apply absolute transition-transform duration-1000 ease-in-out;
-  animation: slide-in 1s ease-in-out forwards, slide-out 1s ease-in-out 1s forwards;
+  animation: slide-in 1s ease-in-out forwards, slide-out 1s ease-in-out 2s forwards;
 }
