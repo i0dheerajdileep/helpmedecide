@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react"
 import "./globals.css";
 
 
@@ -10,6 +10,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="bg-white">
+      <Analytics/>
       <body>{children}</body>
     </html>
   );
